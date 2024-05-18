@@ -12,4 +12,4 @@ If you have changes to suggest to this repo, either
 - tell me in the course Q/A forum
 - submit a pull request!
 
-### Created by Daniel Ciocîrlan
+### Created by [Daniel Ciocîrlan](https://github.com/daniel-ciocirlan)
