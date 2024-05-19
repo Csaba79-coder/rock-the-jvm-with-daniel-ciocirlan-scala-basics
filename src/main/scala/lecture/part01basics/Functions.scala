@@ -73,7 +73,7 @@ object Functions extends App {
 
   private def factorial(num: Int): Int = {
     // 5 -> 5 * 4 * 3 * 2 * 1
-    if (num <= 0) 1 else num * factorial(num - 1)
+    if (num <= 0) 1 else num * factorial(num - 1) // first part returns an integer, second one a product, that is also an integer
   }
 
   private val factorialNum = factorial(5) // output: 120
