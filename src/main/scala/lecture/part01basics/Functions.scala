@@ -103,4 +103,27 @@ object Functions extends App {
   private val isPrimeSecond = isNumberPrime(6)
   println(isPrimeFirst)
   println(isPrimeSecond)
+
+  /*
+  Tail recursion optimization means that the compiler transforms the recursive calls into a simple loop, which avoids
+  creating a new stack frame for each call. This results in significant memory savings and prevents stack overflow errors,
+  which is particularly important for large input values.
+
+  When a tail-recursive function reaches its base case (e.g., number <= 1 in your example), it stops making recursive
+  calls and simply returns the appropriate value.
+
+  In the code it means: the base case for the isPrimeUntil function is if (number <= 1) true.
+  When the number value is 1 or less, the function returns true and stops calling itself, thus ending the recursion.
+  Tail recursion optimization helps in this process by ensuring that these recursive calls are converted into a loop
+  by the compiler.
+
+  How Tail Recursion Optimization Works:
+  1. Base Case: When the number is 1 or less, the isPrimeUntil function returns true, and the recursion stops.
+  2. Optimization: The @tailrec annotation ensures that the compiler converts the recursive calls into a loop,
+  avoiding stack overflow and improving memory efficiency.
+
+  Summary:
+  Tail recursion optimization helps prevent infinite recursion and stack overflow errors, especially with large input
+  values. The function returns when it reaches the base case (number <= 1), and it stops making recursive calls.
+  */
 }
