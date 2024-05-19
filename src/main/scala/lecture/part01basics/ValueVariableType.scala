@@ -1,6 +1,6 @@
 package lecture.part01basics
 
-object ValuesVariablesTypes extends App {
+object ValueVariableType extends App {
 
   // compiler can infer types! (automatically, when omitted!)
   // type can be inferred!

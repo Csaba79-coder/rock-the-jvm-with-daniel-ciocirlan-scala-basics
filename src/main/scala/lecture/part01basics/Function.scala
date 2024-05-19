@@ -2,7 +2,7 @@ package lecture.part01basics
 
 import scala.annotation.tailrec
 
-object Functions extends App {
+object Function extends App {
 
   def aFunctionBasic (aParam: String, bNum: Int) : String = aParam + " " + bNum
 
