@@ -1,6 +1,6 @@
-package lecture.part01basics
+package lecture.part02oop
 
-object Practice extends App {
+object PracticeOO extends App {
 
   private val author: Writer = Writer("Agatha", "Christie", 1890)
   private val author2: Writer = Writer("Agatha", "Christie", 1890)
