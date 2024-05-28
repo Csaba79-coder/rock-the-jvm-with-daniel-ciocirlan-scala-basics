@@ -5,18 +5,23 @@ import scala.language.postfixOps
 
 object MethodNotation extends App {
 
-  class Person(val name: String, favoriteMovie: String) {
+  class Person(val name: String, favoriteMovie: String, val age: Int = 0) {
     def likes(movie: String): Boolean = movie == favoriteMovie
     def hangOutWith(person: Person): String = s"${this.name} is hanging out with ${person.name}"
     @targetName("concatenate")
     def +(person: Person): String = s"${this.name} is hanging out with ${person.name}"
+    def +(nickname: String): Person = new Person(s"${name} ${nickname}", favoriteMovie)
     @targetName("likes")
     def ++(person: Person): String = s"${this.name} likes ${person.name}"
     def ?(person: Person): String = s"${this.name} asks ${person.name}: but why?"
     def unary_! : String = s"$name what the heck?!"  // space is important after the unary_! if no space means column (:) is a part of the method's name
+    def unary_+ : Person = new Person(name, favoriteMovie, age + 1) // do not forget the space before the column!
     def isAlive: Boolean = true // the function not receives any params!
     // method signature is important bellow:
     def apply(): String = s"Hi, my name is: $name and I like $favoriteMovie"// here parenthesis are important for the method!!!
+    def apply(number: Int): String = s"$name watched $favoriteMovie $number times"
+    private def learns(thing: String) = s"$name is learning $thing"
+    def learnsScala: String = this learns "Scala" // this.learns("Scala")
   }
 
   private val mary = new Person("Mary", "Inception")
@@ -69,4 +74,22 @@ object MethodNotation extends App {
   // whenever compiler see an object called as a function it looks for definition of apply! in that particular class!
   // apply is special thing in Scala!
   println(mary()) // output: Hi, my name is: Mary and I like Inception -> brakes the barrier between oop and functional programming!
+
+  // overloading infix operator
+  // with parenthesis () I can call the apply
+  println((mary + "the RockStar")()) // output: Hi, my name is: Mary the RockStar and I like Inception
+  println((mary + "the RockStar").apply()) // same output as above!
+
+  // prefix ++ operator
+  // defining a unary + operator
+  println((+mary).age) // output: 1
+
+  // learns method -> Mary learns Scala
+  // other learnsScala (no param!) and calls the other learns method with Scala as a param!
+  // use with postfix notation!
+  println(mary learnsScala) // output: Mary is learning  Scala
+
+  // overload the apply method to receive a number and return a string! as follows: mary.apply(2) -> Mary watched Inception 2 times
+  println(mary(10)) // output Mary watched Inception 10 times
+  println(mary.apply(10)) // same output as above!
 }
