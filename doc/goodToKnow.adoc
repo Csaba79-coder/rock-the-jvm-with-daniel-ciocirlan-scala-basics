@@ -1,0 +1,11 @@
+= Scala's type hierarchy
+
+image::image-2024-06-15-12-00-13-374.png[]
+
+The image above shows the type hierarchy of Scala.
+
+The Any class is the root of the Scala class hierarchy.
+
+Every class in Scala is a subclass of Any. Any has two direct subclasses: AnyVal and AnyRef. AnyVal represents value types.
+
+AnyRef represents reference types. AnyRef is the equivalent of Java's Object class in Scala.
