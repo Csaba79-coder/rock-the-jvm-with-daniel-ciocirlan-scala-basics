@@ -1,6 +1,6 @@
 package lecture.part02oop
 
-object InheritanceAndTrait extends App {
+object Inheritance extends App {
 
   // Single class inheritance -> only extend one class at a time
 
